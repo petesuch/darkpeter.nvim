@@ -1,6 +1,6 @@
-local c = require('onedark.colors')
-local cfg = vim.g.onedark_config
-local util = require("onedark.util")
+local c = require('darkpeter.colors')
+local cfg = vim.g.darkpeter_config
+local util = require("darkpeter.util")
 
 local M = {}
 local hl = {langs = {}, plugins = {}}
