@@ -1,4 +1,4 @@
-local c = require("onedark.colors")
+local c = require("darkpeter.colors")
 
 return {
     normal = {

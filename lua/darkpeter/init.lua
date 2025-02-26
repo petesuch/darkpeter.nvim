@@ -36,7 +36,7 @@ function M.toggle()
     if vim.g.darkpeter_config.style == 'black' then
         vim.o.background = 'black'
     else
-        vim.o.background = 'dark'
+        vim.o.background = 'warm'
     end
     vim.api.nvim_command('colorscheme darkpeter')
 end
