@@ -3,16 +3,16 @@
   A customized fork of OneDark.nvim, optimized for high-contrast readability.
   At this point this is an outright clone of navarasu onedark.
 
-    I've noticed that at my age there are very very few
-    colorschemes I can actually use. This is because of advancing
-    age, colorblindness and cataracts.  
+    I've noticed that at my age there are very few
+    colorschemes I can actually use. This is because of
+    advancing age, colorblindness and cataracts.  
 
     I'm also uniquely qualified as a doctor optometry 
-    who prefersvcoding than giving eye exams.
+    who prefers coding than giving eye exams.
     (well that's not entirely true).
 
     I will not include a light theme because all light
-    themes cause too much glare.  Hopefully there are some
+    themes cause too much glare. Hopefully there are some
     Dead Head coder grey beards out there who will enjoy my theme.
 
     
