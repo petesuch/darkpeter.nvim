@@ -5,13 +5,6 @@ local util = require("darkpeter.util")
 local M = {}
 local hl = {langs = {}, plugins = {}}
 
-local palette = require("darkpeter.palette")
-local highlights = {
-  Operator = { fg = palette.dark.gold_yellow }, -- Apply gold yellow to operators
-}
-return highlights
-
-
 local function vim_highlights(highlights)
     for group_name, group_settings in pairs(highlights) do
         vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s guisp=%s gui=%s", group_name,
@@ -145,6 +138,14 @@ hl.syntax = {
 
 if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     hl.treesitter = {
+    --experimental yellow equal sign.
+    local palette = require("darkpeter.palette")
+        local highlights = {
+      ["@operator.assignment"] = { fg = palette.dark.gold_yellow },
+    }
+    return highlights
+
+        
         -- nvim-treesitter@0.9.2 and after
         ["@annotation"] = colors.Fg,
         ["@attribute"] = colors.Cyan,
@@ -346,6 +347,7 @@ else
         TSTypeBuiltin = colors.Orange,
         TSVariable = {fg = c.fg, fmt = cfg.code_style.variables},
         TSVariableBuiltin = {fg = c.red, fmt = cfg.code_style.variables},
+        
     }
 end
 
