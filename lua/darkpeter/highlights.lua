@@ -5,6 +5,13 @@ local util = require("darkpeter.util")
 local M = {}
 local hl = {langs = {}, plugins = {}}
 
+local palette = require("darkpeter.palette")
+local highlights = {
+  Operator = { fg = palette.dark.gold_yellow }, -- Apply gold yellow to operators
+}
+return highlights
+
+
 local function vim_highlights(highlights)
     for group_name, group_settings in pairs(highlights) do
         vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s guisp=%s gui=%s", group_name,
