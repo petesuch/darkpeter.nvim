@@ -26,6 +26,7 @@ return {
 		diff_delete = "#382b2c",
 		diff_change = "#1c3448",
 		diff_text = "#2c5372",
+		gold_yellow = "#ffcc00",
 	},
 	darker = {
 		black = "#0e1013",
