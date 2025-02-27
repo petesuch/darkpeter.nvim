@@ -31,6 +31,4 @@ INSTALLATION:
 You'll figure it out.   
 </h1>
 
-
-
 # darkpeter.nvim
