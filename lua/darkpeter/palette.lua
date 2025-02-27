@@ -1,4 +1,6 @@
+
 return {
+		
 	dark = {
 		black = "#181a1f",
 		bg0 = "#282c34",
@@ -26,8 +28,10 @@ return {
 		diff_delete = "#382b2c",
 		diff_change = "#1c3448",
 		diff_text = "#2c5372",
-		gold_yellow = "#ffcc00",
-	},
+	    	gold_yellow = "#ffcc00", -- Added color
+		},
+
+
 	darker = {
 		black = "#0e1013",
 		bg0 = "#1f2329",
