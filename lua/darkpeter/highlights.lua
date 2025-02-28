@@ -351,10 +351,6 @@ else
         TSTypeBuiltin = colors.Orange,
         TSVariable = {fg = c.fg, fmt = cfg.code_style.variables},
         TSVariableBuiltin = {fg = c.red, fmt = cfg.code_style.variables},
-<<<<<<< HEAD
-=======
-        
->>>>>>> 68e75172a03eacfca6fee22901429e0ca2e534d6
     }
 end
 
