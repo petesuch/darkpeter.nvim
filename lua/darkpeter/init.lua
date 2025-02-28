@@ -18,10 +18,10 @@ function M.colorscheme()
     if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
     vim.o.termguicolors = true
     vim.g.colors_name = "darkpeter"
-    if vim.o.background == 'black' then
-        M.set_options('style', 'black')
-    elseif vim.g.darkpeter_config.style == 'black' then
-        M.set_options('style', 'black')
+    if vim.o.background == 'deep' then
+        M.set_options('style', 'deep')
+    elseif vim.g.darkpeter_config.style == 'dark' then
+        M.set_options('style', 'dark')
     end
     require('darkpeter.highlights').setup()
     require('darkpeter.terminal').setup()
