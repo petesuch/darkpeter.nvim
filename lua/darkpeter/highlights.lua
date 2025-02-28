@@ -138,6 +138,17 @@ hl.syntax = {
 
 if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     hl.treesitter = {
+<<<<<<< HEAD
+=======
+    --experimental yellow equal sign.
+    local palette = require("darkpeter.palette")
+        local highlights = {
+      ["@operator.assignment"] = { fg = palette.dark.gold_yellow },
+    }
+    return highlights
+
+        
+>>>>>>> 68e75172a03eacfca6fee22901429e0ca2e534d6
         -- nvim-treesitter@0.9.2 and after
         ["@annotation"] = colors.Fg,
         ["@attribute"] = colors.Cyan,
@@ -307,6 +318,7 @@ else
         TSNone = colors.Fg,
         TSNumber = colors.Orange,
         TSOperator = colors.gold_yellow, -- experimental
+        -- TSOperator = colors.Fg,
         TSParameter = colors.Red,
         TSParameterReference = colors.Fg,
         TSProperty = colors.Cyan,
@@ -339,6 +351,10 @@ else
         TSTypeBuiltin = colors.Orange,
         TSVariable = {fg = c.fg, fmt = cfg.code_style.variables},
         TSVariableBuiltin = {fg = c.red, fmt = cfg.code_style.variables},
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 68e75172a03eacfca6fee22901429e0ca2e534d6
     }
 end
 
@@ -926,7 +942,11 @@ function M.setup()
             color_name = c[name]
             if not color_name then
                 vim.schedule(function()
+<<<<<<< HEAD
                     vim.notify('darkpeter.nvim: unknown color "' .. name .. '"', vim.log.levels.ERROR, { title = "darkpeter.nvim" })
+=======
+                    vim.notify('.nvim: unknown color "' .. name .. '"', vim.log.levels.ERROR, { title = "darkpeter.nvim" })
+>>>>>>> 68e75172a03eacfca6fee22901429e0ca2e534d6
                 end)
                 return ""
             end

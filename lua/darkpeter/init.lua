@@ -1,6 +1,10 @@
 local M = {}
 
+<<<<<<< HEAD
 M.styles_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }
+=======
+M.styles_list = { 'dark', 'black', 'warm'}
+>>>>>>> 68e75172a03eacfca6fee22901429e0ca2e534d6
 
 ---Change darkpeter option (vim.g.darkpeter_config.option)
 ---It can't be changed directly by modifying that field due to a Neovim lua bug with global variables (darkpeter_config is a global variable)
@@ -18,10 +22,17 @@ function M.colorscheme()
     if vim.fn.exists("syntax_on") then vim.cmd("syntax reset") end
     vim.o.termguicolors = true
     vim.g.colors_name = "darkpeter"
+<<<<<<< HEAD
     if vim.o.background == 'light' then
         M.set_options('style', 'light')
     elseif vim.g.darkpeter_config.style == 'light' then
         M.set_options('style', 'light')
+=======
+    if vim.o.background == 'black' then
+        M.set_options('style', 'black')
+    elseif vim.g.darkpeter_config.style == 'black' then
+        M.set_options('style', 'black')
+>>>>>>> 68e75172a03eacfca6fee22901429e0ca2e534d6
     end
     require('darkpeter.highlights').setup()
     require('darkpeter.terminal').setup()
@@ -33,10 +44,17 @@ function M.toggle()
     if index > #vim.g.darkpeter_config.toggle_style_list then index = 1 end
     M.set_options('style', vim.g.darkpeter_config.toggle_style_list[index])
     M.set_options('toggle_style_index', index)
+<<<<<<< HEAD
     if vim.g.darkpeter_config.style == 'light' then
         vim.o.background = 'light'
     else
         vim.o.background = 'dark'
+=======
+    if vim.g.darkpeter_config.style == 'black' then
+        vim.o.background = 'black'
+    else
+        vim.o.background = 'warm'
+>>>>>>> 68e75172a03eacfca6fee22901429e0ca2e534d6
     end
     vim.api.nvim_command('colorscheme darkpeter')
 end
