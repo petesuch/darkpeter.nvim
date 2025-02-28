@@ -28,8 +28,9 @@ local colors = {
     Purple = {fg = c.purple}
 }
 hl.common = {
-    Normal = {fg = c.fg, bg = cfg.transparent and c.none or c.bg0},
-    Terminal = {fg = c.fg, bg = cfg.transparent and c.none or c.bg0},
+    --Normal = {fg = c.fg, bg = cfg.transparent and c.none or c.bg0},
+    Normal = {fg = c.fg, bg = c.bg0},
+    Terminal = {fg = c.fg, bg = c.bg0},
     EndOfBuffer = {fg = cfg.ending_tildes and c.bg2 or c.bg0, bg = cfg.transparent and c.none or c.bg0},
     FoldColumn = {fg = c.fg, bg = cfg.transparent and c.none or c.bg1},
     Folded = {fg = c.fg, bg = cfg.transparent and c.none or c.bg1},
