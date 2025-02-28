@@ -104,7 +104,8 @@ hl.syntax = {
     String = {fg = c.green, fmt = cfg.code_style.strings},
     Character = colors.Orange,
     Number = colors.Orange,
-    Float = colors.Orange,
+    --Float = colors.Orange,
+    Float = colors.gold_yellow,
     Boolean = colors.Orange,
     Type = colors.Yellow,
     Structure = colors.Yellow,
@@ -134,21 +135,10 @@ hl.syntax = {
     Comment = {fg = c.grey, fmt = cfg.code_style.comments},
     SpecialComment = {fg = c.grey, fmt = cfg.code_style.comments},
     Todo = {fg = c.red, fmt = cfg.code_style.comments}
-}
+}                                                                                    
 
-if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
-    hl.treesitter = {
-<<<<<<< HEAD
-=======
-    --experimental yellow equal sign.
-    local palette = require("darkpeter.palette")
-        local highlights = {
-      ["@operator.assignment"] = { fg = palette.dark.gold_yellow },
-    }
-    return highlights
-
-        
->>>>>>> 68e75172a03eacfca6fee22901429e0ca2e534d6
+   if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then                       
+	     hl.treesitter = {                                                                
         -- nvim-treesitter@0.9.2 and after
         ["@annotation"] = colors.Fg,
         ["@attribute"] = colors.Cyan,
