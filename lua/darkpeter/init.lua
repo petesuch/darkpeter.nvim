@@ -1,6 +1,6 @@
 local M = {}
 
-M.styles_list = { 'dark', 'black', 'warm'}
+M.styles_list = { 'dark', 'black', 'warm', 'deep'}
 
 ---Change darkpeter option (vim.g.darkpeter_config.option)
 ---It can't be changed directly by modifying that field due to a Neovim lua bug with global variables (darkpeter_config is a global variable)
