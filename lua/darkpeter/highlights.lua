@@ -928,11 +928,8 @@ function M.setup()
             color_name = c[name]
             if not color_name then
                 vim.schedule(function()
-<<<<<<< HEAD
                     vim.notify('darkpeter.nvim: unknown color "' .. name .. '"', vim.log.levels.ERROR, { title = "darkpeter.nvim" })
-=======
                     vim.notify('.nvim: unknown color "' .. name .. '"', vim.log.levels.ERROR, { title = "darkpeter.nvim" })
->>>>>>> 68e75172a03eacfca6fee22901429e0ca2e534d6
                 end)
                 return ""
             end
