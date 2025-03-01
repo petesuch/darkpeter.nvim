@@ -29,7 +29,7 @@ return {
 		diff_change = "#1c3448",
 		diff_text = "#2c5372",
 	},
-	 
+
 	darker = {
 		black = "#0e1013",
 		bg0 = "#1f2329",
@@ -58,6 +58,7 @@ return {
 		diff_change = "#172a3a",
 		diff_text = "#274964",
 	},
+
 	cool = {
 		black = "#151820",
 		bg0 = "#242b38",
@@ -86,6 +87,7 @@ return {
 		diff_change = "#18344c",
 		diff_text = "#265478",
 	},
+
 	deep = {
 		--black = "#0c0e15",
 		black = "#8b0000",
@@ -115,6 +117,7 @@ return {
 		diff_change = "#102b40",
 		diff_text = "#1c4a6e",
 	},
+
 	warm = {
 		black = "#191a1c",
 		bg0 = "#2c2d30",
@@ -143,6 +146,7 @@ return {
 		diff_change = "#203444",
 		diff_text = "#32526c",
 	},
+
 	warmer = {
 		black = "#101012",
 		bg0 = "#232326",
@@ -171,6 +175,7 @@ return {
 		diff_change = "#1a2a37",
 		diff_text = "#2c485f",
 	},
+
 	light = {
 		black = "#101012",
 		bg0 = "#fafafa",
