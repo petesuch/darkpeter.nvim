@@ -27,6 +27,7 @@ local colors = {
   Blue = {fg = c.blue},
   Purple = {fg = c.purple}
 }
+
 hl.common = {
   Normal = {fg = c.fg, bg = cfg.transparent and c.none or c.bg0},
   Terminal = {fg = c.fg, bg = c.bg0},
@@ -254,6 +255,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
     ["@text.diff.add"] = colors.Green,
     ["@text.diff.delete"] = colors.Red,
   }
+
   if vim.api.nvim_call_function("has", { "nvim-0.9" }) == 1 then
     hl.lsp = {
       ["@lsp.type.comment"] = hl.treesitter[ "@comment"],
@@ -280,6 +282,7 @@ if vim.api.nvim_call_function("has", { "nvim-0.8" }) == 1 then
       ["@lsp.typemod.variable.static"] = hl.treesitter["@constant"],
     }
   end
+
 else
   hl.treesitter = {
     TSAnnotation = colors.Fg,
@@ -349,6 +352,7 @@ local diagnostics_error_color = cfg.diagnostics.darker and c.dark_red or c.red
 local diagnostics_hint_color = cfg.diagnostics.darker and c.dark_purple or c.purple
 local diagnostics_warn_color = cfg.diagnostics.darker and c.dark_yellow or c.yellow
 local diagnostics_info_color = cfg.diagnostics.darker and c.dark_cyan or c.cyan
+
 hl.plugins.lsp = {
   LspCxxHlGroupEnumConstant = colors.Orange,
   LspCxxHlGroupMemberVariable = colors.Orange,
@@ -396,59 +400,6 @@ hl.plugins.lsp.LspDiagnosticsVirtualTextWarning = hl.plugins.lsp.DiagnosticVirtu
 hl.plugins.lsp.LspDiagnosticsVirtualTextInformation = hl.plugins.lsp.DiagnosticVirtualTextInfo
 hl.plugins.lsp.LspDiagnosticsVirtualTextHint = hl.plugins.lsp.DiagnosticVirtualTextHint
 
-hl.plugins.ale = {
-  ALEErrorSign = hl.plugins.lsp.DiagnosticError,
-  ALEInfoSign = hl.plugins.lsp.DiagnosticInfo,
-  ALEWarningSign = hl.plugins.lsp.DiagnosticWarn,
-}
-
-hl.plugins.barbar = {
-  BufferCurrent = { fmt = "bold" },
-  BufferCurrentMod = { fg = c.orange, fmt = "bold,italic" },
-  BufferCurrentSign = { fg = c.purple },
-  BufferInactiveMod = { fg = c.light_grey, bg = c.bg1, fmt = "italic" },
-  BufferVisible = { fg = c.light_grey, bg = c.bg0 },
-  BufferVisibleMod = { fg = c.yellow, bg = c.bg0, fmt = "italic" },
-  BufferVisibleIndex = { fg = c.light_grey, bg = c.bg0 },
-  BufferVisibleSign = { fg = c.light_grey, bg = c.bg0 },
-  BufferVisibleTarget = { fg = c.light_grey, bg = c.bg0 },
-}
-
-hl.plugins.cmp = {
-  CmpItemAbbr = colors.Fg,
-  CmpItemAbbrDeprecated = { fg = c.light_grey, fmt = "strikethrough" },
-  CmpItemAbbrMatch = colors.Cyan,
-  CmpItemAbbrMatchFuzzy = { fg = c.cyan, fmt = "underline" },
-  CmpItemMenu = colors.LightGrey,
-  CmpItemKind = { fg = c.purple, fmt = cfg.cmp_itemkind_reverse and "reverse" },
-}
-
-hl.plugins.coc = {
-  CocErrorSign = hl.plugins.lsp.DiagnosticError,
-  CocHintSign = hl.plugins.lsp.DiagnosticHint,
-  CocInfoSign = hl.plugins.lsp.DiagnosticInfo,
-  CocWarningSign = hl.plugins.lsp.DiagnosticWarn,
-}
-
-hl.plugins.whichkey = {
-  WhichKey = colors.Red,
-  WhichKeyDesc = colors.Blue,
-  WhichKeyGroup = colors.Orange,
-  WhichKeySeparator = colors.Green
-}
-
-hl.plugins.gitgutter = {
-  GitGutterAdd = {fg = c.green},
-  GitGutterChange = {fg = c.blue},
-  GitGutterDelete = {fg = c.red},
-}
-
-hl.plugins.hop = {
-  HopNextKey = {fg = c.red, fmt = "bold"},
-  HopNextKey1 = {fg = c.cyan, fmt = "bold"},
-  HopNextKey2 = {fg = util.darken(c.blue, 0.7)},
-  HopUnmatched = colors.Grey,
-}
 
 -- comment
 hl.plugins.diffview = {
@@ -616,140 +567,6 @@ hl.plugins.indent_blankline = {
   IblScope = { fg = c.grey, fmt = "nocombine" },
 }
 
-hl.plugins.mini = {
-  MiniAnimateCursor = { fmt = "reverse,nocombine" },
-  MiniAnimateNormalFloat = hl.common.NormalFloat,
-
-  MiniClueBorder = hl.common.FloatBorder,
-  MiniClueDescGroup = hl.plugins.lsp.DiagnosticWarn,
-  MiniClueDescSingle = hl.common.NormalFloat,
-  MiniClueNextKey = hl.plugins.lsp.DiagnosticHint,
-  MiniClueNextKeyWithPostkeys = hl.plugins.lsp.DiagnosticError,
-  MiniClueSeparator = hl.plugins.lsp.DiagnosticInfo,
-  MiniClueTitle = colors.Cyan,
-
-  MiniCompletionActiveParameter = { fmt = "underline" },
-
-  MiniCursorword = { fmt = "underline" },
-  MiniCursorwordCurrent = { fmt = "underline" },
-
-  MiniDepsChangeAdded = hl.common.Added,
-  MiniDepsChangeRemoved = hl.common.Removed,
-  MiniDepsHint = hl.plugins.lsp.DiagnosticHint,
-  MiniDepsInfo = hl.plugins.lsp.DiagnosticInfo,
-  MiniDepsMsgBreaking = hl.plugins.lsp.DiagnosticWarn,
-  MiniDepsPlaceholder = hl.syntax.Comment,
-  MiniDepsTitle = hl.syntax.Title,
-  MiniDepsTitleError = hl.common.DiffDelete,
-  MiniDepsTitleSame = hl.common.DiffText,
-  MiniDepsTitleUpdate = hl.common.DiffAdd,
-
-  MiniDiffSignAdd = colors.Green,
-  MiniDiffSignChange = colors.Blue,
-  MiniDiffSignDelete = colors.Red,
-  MiniDiffOverAdd = hl.common.DiffAdd,
-  MiniDiffOverChange = hl.common.DiffText,
-  MiniDiffOverContext = hl.common.DiffChange,
-  MiniDiffOverDelete = hl.common.DiffDelete,
-
-  MiniFilesBorder = hl.common.FloatBorder,
-  MiniFilesBorderModified = hl.plugins.lsp.DiagnosticWarn,
-  MiniFilesCursorLine = { bg = c.bg2 },
-  MiniFilesDirectory = hl.common.Directory,
-  MiniFilesFile = { fg = c.fg },
-  MiniFilesNormal = hl.common.NormalFloat,
-  MiniFilesTitle = colors.Cyan,
-  MiniFilesTitleFocused = { fg = c.cyan, fmt = "bold" },
-
-  MiniHipatternsFixme = { fg = c.bg0, bg = c.red, fmt = "bold" },
-  MiniHipatternsHack = { fg = c.bg0, bg = c.yellow, fmt = "bold" },
-  MiniHipatternsNote = { fg = c.bg0, bg = c.cyan, fmt = "bold" },
-  MiniHipatternsTodo = { fg = c.bg0, bg = c.purple, fmt = "bold" },
-
-  MiniIconsAzure = { fg = c.bg_blue },
-  MiniIconsBlue = { fg = c.blue },
-  MiniIconsCyan = { fg = c.cyan },
-  MiniIconsGreen = { fg = c.green },
-  MiniIconsGrey = { fg = c.fg },
-  MiniIconsOrange = { fg = c.orange },
-  MiniIconsPurple = { fg = c.purple },
-  MiniIconsRed = { fg = c.red },
-  MiniIconsYellow = { fg = c.yellow },
-
-  MiniIndentscopeSymbol = { fg = c.grey },
-  MiniIndentscopePrefix = { fmt = "nocombine" }, -- Make it invisible
-
-  MiniJump = { fg = c.purple, fmt = "underline", sp = c.purple },
-
-  MiniJump2dDim = { fg = c.grey, fmt = "nocombine" },
-  MiniJump2dSpot = { fg = c.red, fmt = "bold,nocombine" },
-  MiniJump2dSpotAhead = { fg = c.cyan, bg = c.bg0, fmt = "nocombine" },
-  MiniJump2dSpotUnique = { fg = c.yellow, fmt = "bold,nocombine" },
-
-  MiniMapNormal = hl.common.NormalFloat,
-  MiniMapSymbolCount = hl.syntax.Special,
-  MiniMapSymbolLine = hl.syntax.Title,
-  MiniMapSymbolView = hl.syntax.Delimiter,
-
-  MiniNotifyBorder = hl.common.FloatBorder,
-  MiniNotifyNormal = hl.common.NormalFloat,
-  MiniNotifyTitle = colors.Cyan,
-
-  MiniOperatorsExchangeFrom = hl.common.IncSearch,
-
-  MiniPickBorder = hl.common.FloatBorder,
-  MiniPickBorderBusy = hl.plugins.lsp.DiagnosticWarn,
-  MiniPickBorderText = { fg = c.cyan, fmt = "bold" },
-  MiniPickIconDirectory = hl.common.Directory,
-  MiniPickIconFile = hl.common.NormalFloat,
-  MiniPickHeader = hl.plugins.lsp.DiagnosticHint,
-  MiniPickMatchCurrent = { bg = c.bg2 },
-  MiniPickMatchMarked = { bg = c.diff_text },
-  MiniPickMatchRanges = hl.plugins.lsp.DiagnosticHint,
-  MiniPickNormal = hl.common.NormalFloat,
-  MiniPickPreviewLine = { bg = c.bg2 },
-  MiniPickPreviewRegion = hl.common.IncSearch,
-  MiniPickPrompt = hl.plugins.lsp.DiagnosticInfo,
-
-  MiniStarterCurrent = { fmt = "nocombine" },
-  MiniStarterFooter = { fg = c.dark_red, fmt = "italic" },
-  MiniStarterHeader = colors.Yellow,
-  MiniStarterInactive = { fg = c.grey, fmt = cfg.code_style.comments },
-  MiniStarterItem = { fg = c.fg, bg = cfg.transparent and c.none or c.bg0 },
-  MiniStarterItemBullet = { fg = c.grey },
-  MiniStarterItemPrefix = { fg = c.yellow },
-  MiniStarterSection = colors.LightGrey,
-  MiniStarterQuery = { fg = c.cyan },
-
-  MiniStatuslineDevinfo = { fg = c.fg, bg = c.bg2 },
-  MiniStatuslineFileinfo = { fg = c.fg, bg = c.bg2 },
-  MiniStatuslineFilename = { fg = c.grey, bg = c.bg1 },
-  MiniStatuslineInactive = { fg = c.grey, bg = c.bg0 },
-  MiniStatuslineModeCommand = { fg = c.bg0, bg = c.yellow, fmt = "bold" },
-  MiniStatuslineModeInsert = { fg = c.bg0, bg = c.blue, fmt = "bold" },
-  MiniStatuslineModeNormal = { fg = c.bg0, bg = c.green, fmt = "bold" },
-  MiniStatuslineModeOther = { fg = c.bg0, bg = c.cyan, fmt = "bold" },
-  MiniStatuslineModeReplace = { fg = c.bg0, bg = c.red, fmt = "bold" },
-  MiniStatuslineModeVisual = { fg = c.bg0, bg = c.purple, fmt = "bold" },
-
-  MiniSurround = { fg = c.bg0, bg = c.orange },
-
-  MiniTablineCurrent = { fmt = "bold" },
-  MiniTablineFill = { fg = c.grey, bg = c.bg1 },
-  MiniTablineHidden = { fg = c.fg, bg = c.bg1 },
-  MiniTablineModifiedCurrent = { fg = c.orange, fmt = "bold,italic" },
-  MiniTablineModifiedHidden = { fg = c.light_grey, bg = c.bg1, fmt = "italic" },
-  MiniTablineModifiedVisible = { fg = c.yellow, bg = c.bg0, fmt = "italic" },
-  MiniTablineTabpagesection = { fg = c.bg0, bg = c.bg_yellow },
-  MiniTablineVisible = { fg = c.light_grey, bg = c.bg0 },
-
-  MiniTestEmphasis = { fmt = "bold" },
-  MiniTestFail = { fg = c.red, fmt = "bold" },
-  MiniTestPass = { fg = c.green, fmt = "bold" },
-
-  MiniTrailspace = { bg = c.red },
-}
-
 hl.plugins.illuminate = {
   illuminatedWord = { bg = c.bg2, fmt = "bold" },
   illuminatedCurWord = { bg = c.bg2, fmt = "bold" },
@@ -775,83 +592,6 @@ hl.langs.cpp = {
   cppTSConstant = colors.Cyan,
   cppTSConstMacro = colors.Purple,
   cppTSOperator = colors.Purple,
-}
-
-hl.langs.markdown = {
-  markdownBlockquote = colors.Grey,
-  markdownBold = {fg = c.none, fmt = "bold"},
-  markdownBoldDelimiter = colors.Grey,
-  markdownCode = colors.Green,
-  markdownCodeBlock = colors.Green,
-  markdownCodeDelimiter = colors.Yellow,
-  markdownH1 = {fg = c.red, fmt = "bold"},
-  markdownH2 = {fg = c.purple, fmt = "bold"},
-  markdownH3 = {fg = c.orange, fmt = "bold"},
-  markdownH4 = {fg = c.red, fmt = "bold"},
-  markdownH5 = {fg = c.purple, fmt = "bold"},
-  markdownH6 = {fg = c.orange, fmt = "bold"},
-  markdownHeadingDelimiter = colors.Grey,
-  markdownHeadingRule = colors.Grey,
-  markdownId = colors.Yellow,
-  markdownIdDeclaration = colors.Red,
-  markdownItalic = {fg = c.none, fmt = "italic"},
-  markdownItalicDelimiter = {fg = c.grey, fmt = "italic"},
-  markdownLinkDelimiter = colors.Grey,
-  markdownLinkText = colors.Red,
-  markdownLinkTextDelimiter = colors.Grey,
-  markdownListMarker = colors.Red,
-  markdownOrderedListMarker = colors.Red,
-  markdownRule = colors.Purple,
-  markdownUrl = {fg = c.blue, fmt = "underline"},
-  markdownUrlDelimiter = colors.Grey,
-  markdownUrlTitleDelimiter = colors.Green
-}
-
-hl.langs.php = {
-  phpFunctions = {fg = c.fg, fmt = cfg.code_style.functions},
-  phpMethods = colors.Cyan,
-  phpStructure = colors.Purple,
-  phpOperator = colors.Purple,
-  phpMemberSelector = colors.Fg,
-  phpVarSelector = {fg = c.orange, fmt = cfg.code_style.variables},
-  phpIdentifier = {fg = c.orange, fmt = cfg.code_style.variables},
-  phpBoolean = colors.Cyan,
-  phpNumber = colors.Orange,
-  phpHereDoc = colors.Green,
-  phpNowDoc = colors.Green,
-  phpSCKeyword = {fg = c.purple, fmt = cfg.code_style.keywords},
-  phpFCKeyword = {fg = c.purple, fmt = cfg.code_style.keywords},
-  phpRegion = colors.Blue
-}
-
-hl.langs.scala = {
-  scalaNameDefinition = colors.Fg,
-  scalaInterpolationBoundary = colors.Purple,
-  scalaInterpolation = colors.Purple,
-  scalaTypeOperator = colors.Red,
-  scalaOperator = colors.Red,
-  scalaKeywordModifier = {fg = c.red, fmt = cfg.code_style.keywords},
-}
-
-hl.langs.tex = {
-  latexTSInclude = colors.Blue,
-  latexTSFuncMacro = {fg = c.fg, fmt = cfg.code_style.functions},
-  latexTSEnvironment = { fg = c.cyan, fmt = "bold" },
-  latexTSEnvironmentName = colors.Yellow,
-  texCmdEnv = colors.Cyan,
-  texEnvArgName = colors.Yellow,
-  latexTSTitle = colors.Green,
-  latexTSType = colors.Blue,
-  latexTSMath   = colors.Orange,
-  texMathZoneX  = colors.Orange,
-  texMathZoneXX = colors.Orange,
-  texMathDelimZone = colors.LightGrey,
-  texMathDelim = colors.Purple,
-  texMathOper = colors.Red,
-  texCmd = colors.Purple,
-  texCmdPart = colors.Blue,
-  texCmdPackage = colors.Blue,
-  texPgfType = colors.Yellow,
 }
 
 hl.langs.vim = {
